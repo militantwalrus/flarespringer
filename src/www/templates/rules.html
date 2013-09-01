@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+{% block title %}Flarespringer Rules{% endblock %}
+{% block content %}
+
+<div id=""><a href="/rules/create">Add Rule</a></div>
+
+<ul>
+{% for id in data.rules %}
+        {% set r = data.rules[id] %}
+	<li class="actionable" rule="{{id}}">{{ r['name'] }}</li>
+{% endfor %}
+</ul>
+
+<script type="text/javascript">
+$(document).ready(function() {
+	$('.actionable').click(function(e) {
+		var s = $(this).attr('rule');
+		document.location.href = '/rules/edit/' + s;
+		return true;
+	});
+});
+</script>
+
+{% endblock %}
+

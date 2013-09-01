@@ -1,0 +1,56 @@
+{% extends "layout.html" %}
+{% block title %}Flarespringer Roles{% endblock %}
+{% block content %}
+<div id="flash">
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <ul class="flashes">
+    {% for message in messages %}
+      <li>{{ message }}</li>
+    {% endfor %}
+    </ul>
+  {% endif %}
+{% endwith %}
+</div>
+<form name="{{data.action.formname}}" method="POST" action="{{data.action.url}}" >
+<fieldset>
+	<legend>{{data.action.displayname}}</legend>
+	<div>
+		<label for="role_name">Role Name:</label>
+		<input type="text" name="role_name" size="32" maxsize="128" value="{{data.role.name}}" />
+	</div>
+	<!-- hosting-x.mtvi.com/apps/HostingPortal/src/view/users/add_user.html -->
+	<div id="role_check_widget">
+		<div id="checks_in_role">
+			<span>
+			<select name="role_checks" multiple="multiple">
+			{% for id in data.checks_in_role %}
+			{% c = data.checks_in_role[id] %}
+				<option value="{{id}}">{{c.name}}</option>
+			{% endfor %}
+			</select>
+		</div>
+		<div id="checks_in_role_buttons">
+			<input type="button" id="add_check" value="&lt;&lt;&lt;" />
+			<br />
+			<input type="button" id="remove_check" value="&gt;&gt;&gt;" />
+		</div>
+		<div id="checks_not_in_role">
+			<select name="checks_list" multiple="multiple">
+			{% for id in data.checks_list %}
+			{% c = data.checks_list[id] %}
+				<option value="{{id}}">{{c.name}}</option>
+			{% endfor %}
+			</select>
+		</div>
+	</div>
+	<div>
+		<label>&nbsp;</label>
+		<input type="submit" />
+	</div>
+</fieldset>
+</form>
+<script type="text/javascript">
+</script>
+{% endblock %}
+

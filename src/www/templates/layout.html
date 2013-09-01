@@ -1,0 +1,16 @@
+<!doctype html>
+<html>
+	<head>
+		<title>{% block title %}{% endblock %}</title>
+		<link rel="shortcut icon" href="/static/favicon.ico">
+		<link rel="stylesheet" href="/static/assets/css/flarespringer.css" />
+		<script type="text/javascript" src="/static/assets/js/jquery-2.0.0.min.js"></script>
+		<script type="text/javascript" src="/static/assets/js/flarespringer.js"></script>
+	</head>
+	<body>
+		 <h1 class="site-header"><a href="/">Flarespringer</a></h1>
+		 <div id="header-container">{% include 'header.html' %}</div>
+		 <div id="content-container">{% block content %}{% endblock %}</div>
+		 <div id="footer-container">{% include 'footer.html' %}</div>
+	</body>
+</html>

@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+{% block title %}Flarespringer Users{% endblock %}
+{% block content %}
+
+<div id=""><a href="/user/create">Add User</a></div>
+
+<ul>
+{% for id in data.users %}
+        {% set r = data.users[id] %}
+	<li class="actionable" user="{{id}}">{{ r['username'] }} {{r['first_name']}} {{r['last_name']}}</li>
+{% endfor %}
+</ul>
+
+<script type="text/javascript">
+$(document).ready(function() {
+	$('.actionable').click(function(e) {
+		var s = $(this).attr('user');
+		document.location.href = '/user/edit/' + s;
+		return true;
+	});
+});
+</script>
+
+{% endblock %}
+

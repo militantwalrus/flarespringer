@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+{% block title %}Flarespringer Checks{% endblock %}
+{% block content %}
+
+<div id=""><a href="/checks/create">Add Check</a></div>
+
+<ul>
+{% for id in data.checks %}
+        {% set r = data.checks[id] %}
+	<li class="actionable" check="{{id}}">{{ r['name'] }}</li>
+{% endfor %}
+</ul>
+
+<script type="text/javascript">
+$(document).ready(function() {
+	$('.actionable').click(function(e) {
+		var s = $(this).attr('check');
+		document.location.href = '/checks/edit/' + s;
+		return true;
+	});
+});
+</script>
+
+{% endblock %}
+

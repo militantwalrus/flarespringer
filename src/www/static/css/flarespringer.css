@@ -1,0 +1,138 @@
+/*
+ * http://colourco.de/
+ */
+
+
+body {
+	margin:4px;
+}
+
+table {
+	border-collapse:collapse;
+}
+
+td {
+	font-family:sans-serif;
+	border:1px solid black;
+	text-align:center;
+	padding:4px;
+}
+
+th {
+	border:1px solid black;
+	text-align:center;
+	padding:4px;
+}
+
+.site-header {
+	color:#27581d;
+}
+
+.site-header a {
+	color:#27581d;
+	text-decoration:none;
+}
+
+fieldset {
+	margin:10px;
+	padding:5px;
+	border:solid 1px black;
+}
+
+legend {
+	padding: 0 2px;
+	font-weight:bold;
+}
+
+fieldset div {
+	display:block;
+	margin-bottom: .5em;
+	overflow:hidden;
+}
+
+fieldset div label {
+	float:left;
+	width:200px;
+	padding-right: 10px;
+	text-align:right;
+}
+
+#header-nav {
+	border:1px solid black;
+	margin-bottom:10px;
+	overflow:hidden;
+}
+
+#header-nav a {
+	text-decoration:none;
+	cursor:pointer;
+}
+
+#header-nav ul {
+	list-style:none;
+	display:inline-block;
+	margin:0;
+	padding:10px;
+}
+
+#header-nav li {
+	float:left;
+	padding-left:10px;
+}
+
+#header-nav li ul {
+	display:none;
+}
+
+#header-nav li:hover > ul {
+	display:block;
+	list-style:none;
+}
+
+#footer {
+	border:1px solid black;
+	margin-top:10px;
+	padding:10px;
+	overflow:hidden;
+}
+
+#content-container {
+	overflow:hidden;
+}
+
+.row-header {
+	font-weight:bold;
+	color:#3596bd;
+}
+
+.ul-no-style {
+	list-style:none;
+	margin:0;
+	padding:0;
+}
+
+
+.tog {
+	background-color:#b18f3b;
+	cursor:pointer;
+}
+
+.actionable:hover {
+	cursor:pointer;
+	background-color:#3596bd;
+}
+
+.flashes {
+	color:#FF0000;
+}
+
+.hidden {
+	display:none;
+}
+
+#header-nav #user {
+	float:right;
+	padding-right:10px;
+}
+
+

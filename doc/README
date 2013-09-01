@@ -1,0 +1,15 @@
+
+
+
+
+REQUIREMENTS:
+	Flask, PyCrypto
+
+
+GETTING ROLES FROM DNS (need text record):
+
+$ dig +short -t TXT yourhost.com
+$ host -t TXT yourhost.com
+
+
+

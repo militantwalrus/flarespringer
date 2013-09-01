@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+{% block title %}Flarespringer Login{% endblock %}
+{% block content %}
+<div id="flash">
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <ul class="flashes">
+    {% for message in messages %}
+      <li>{{ message }}</li>
+    {% endfor %}
+    </ul>
+  {% endif %}
+{% endwith %}
+</div>
+<form name="login" method="POST" action="/login" >
+<input type="hidden" name="next" value="{{request.args.get('next', '/')}}" />
+<fieldset>
+	<legend>Log In</legend>
+	<div>
+		<label for="username">Username:</label>
+		<input type="text" name="username" size="32" maxsize="64" />
+	</div>
+	<div>
+		<label for="password">Password:</label>
+		<input type="password" name="password" size="32" maxsize="64" />
+	</div>
+	<div>
+		<input type="submit" />
+	</div>
+</fieldset>
+</form>
+{% endblock %}
+

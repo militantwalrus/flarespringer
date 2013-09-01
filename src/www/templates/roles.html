@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+{% block title %}Flarespringer Roles{% endblock %}
+{% block content %}
+
+<div id=""><a href="/roles/create">Add Role</a></div>
+
+<ul>
+{% for id in data.roles %}
+        {% set r = data.roles[id] %}
+	<li class="actionable" role="{{id}}">{{ r['name'] }}</li>
+{% endfor %}
+</ul>
+
+<script type="text/javascript">
+$(document).ready(function() {
+	$('.actionable').click(function(e) {
+		var s = $(this).attr('role');
+		document.location.href = '/roles/edit/' + s;
+		return true;
+	});
+});
+</script>
+
+{% endblock %}
+

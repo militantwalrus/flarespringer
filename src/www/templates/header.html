@@ -1,0 +1,19 @@
+<div id="header-nav">
+	<ul>
+		{% if request.path != '/login' and g.current_user %}
+		<li><a href="/admin">Admin</a></li>
+		<li><a href="/roles">Roles</a></li>
+		<li><a href="/checks">Checks</a></li>
+		<li><a href="/rules">Rules</a></li>
+		<li><a href="/logout">Logout</a></li>
+		{% else %}
+		<li><a href="/login">Login</a></li>
+		{% endif %}
+	</ul>
+	<ul id="user">
+	{% if g.current_user %}
+		<li>{{g.current_user['username']}} <a href="/user/edit/{{g.current_user['id']}}">Profile</a></li>
+  {% endif %}
+	</ul>
+</div>
+

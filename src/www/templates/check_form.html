@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+{% block title %}Flarespringer Checks{% endblock %}
+{% block content %}
+<div id="flash">
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <ul class="flashes">
+    {% for message in messages %}
+      <li>{{ message }}</li>
+    {% endfor %}
+    </ul>
+  {% endif %}
+{% endwith %}
+</div>
+<form name="{{data.action.formname}}" method="POST" action="{{data.action.url}}" >
+<fieldset>
+	<legend>{{data.action.displayname}}</legend>
+	<div>
+		<label for="check_name">Check Name:</label>
+		<input type="text" name="check_name" size="32" maxsize="128" value="{{data.check.name}}" />
+	</div>
+	<div>
+		<label for="script">Script:</label>
+		<input type="text" name="script" size="32" maxsize="128" value="{{data.check.script}}" />
+	</div>
+	<div>
+		<label>&nbsp;</label>
+		<input type="submit" />
+	</div>
+</fieldset>
+</form>
+{% endblock %}
+

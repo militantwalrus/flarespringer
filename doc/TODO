@@ -1,0 +1,35 @@
+Error propagation in web app
+
+How to send scripts? - or is part of original git clone? 
+
+
+CRUD
+	* remove meta class?
+	* users
+	* roles
+	* rules
+	* checks
+	* role-check map
+
+
+Sample scripts
+
+
+API
+	* getConfiguration
+	* sendCheckResults
+
+
+RULES:
+
+(04:56:00 PM) x: might be some compromise between free form and choices between 
+(04:56:09 PM) x: "percent (some value) in past (some number)"
+(04:56:24 PM) x: and "go nuts immediately on (some value)"
+(04:56:31 PM) x: any others you can think of?
+(04:56:53 PM) x: hmm
+(04:57:00 PM) x: avg value over past (number)?
+(04:57:15 PM) x: e.g. [1, 0, 0, 0, 1, 2, 1, 0, 0]
+(04:57:30 PM) x: 5 / 8
+(04:57:51 PM) x: "go nuts at > 75% over past 8 values"
+(04:57:57 PM) x: so that one would not "go nuts"
+
