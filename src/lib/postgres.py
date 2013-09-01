@@ -51,27 +51,23 @@ class PG():
 		return ret
 
 
-	# parallel arrays of multiple statments, args
+	# @param stmts - array of dict [{"dml": "INSERT...", "args": [...,...] }, {...}]
 	# to be done in transction
 	# returns FETCHALL of last statement in stms
-	def multi_write(self, stms, args):
-		if len(stms) != len(args):
-			print "POSTGRES: MULTI WRITE ERROR: mismatched statement and argument lengths"
-			print repr(stms)
-			print repr(args)
-			return False
+	def multi_write(self, stmts):
+		ret = [True, []]
 		try:
 			cur = self.connection.cursor()
-			for i, stm in enumerate(stms):
-				cur.execute(stm, args[i])
-				self.connection.commit()
-				ret = cur.fetchall()
+			for s in enumerate(stms):
+				cur.execute(s['dml'], s['args'])
+				ret[1].append(cur.fetchall())
 		except Exception as e:
 			self.connection.rollback()
 			print "POSTGRES: MULTI WRITE ERROR"
 			print repr(e)
-			return False
+			return [False, e]
 
+		self.connection.commit()
 		return ret
 
 
